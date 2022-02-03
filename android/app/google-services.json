@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "745384492605",
+    "project_id": "doc-apo",
+    "storage_bucket": "doc-apo.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:745384492605:android:bef7b9be0d7dc854dd3454",
+        "android_client_info": {
+          "package_name": "doctor.com"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "745384492605-kc2i1dhgvcq0t1miebpk80ipj7shsm4q.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "doctor.com",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "745384492605-7gmcp7up52smc5n0h29bv22avhdce6ta.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCtVjGQO4c06cZuJEb0RfZozV5JKGYlKr0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "745384492605-7gmcp7up52smc5n0h29bv22avhdce6ta.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "745384492605-nqb93aomed6i008064ga0ntu0hl96scv.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "doctor.com"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
