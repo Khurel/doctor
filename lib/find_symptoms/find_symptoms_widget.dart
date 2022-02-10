@@ -64,10 +64,12 @@ class _FindSymptomsWidgetState extends State<FindSymptomsWidget> {
                         controller: searchFieldController,
                         obscureText: false,
                         decoration: InputDecoration(
+                          labelText: 'Search symptoms…',
                           labelStyle: FlutterFlowTheme.bodyText1.override(
                             fontFamily: 'Lexend Deca',
                             color: FlutterFlowTheme.grayLight,
                           ),
+                          hintText: 'Headache, heartburn etc...',
                           hintStyle: FlutterFlowTheme.bodyText1.override(
                             fontFamily: 'Lexend Deca',
                             color: Color(0x98FFFFFF),

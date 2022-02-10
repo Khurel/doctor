@@ -233,10 +233,12 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget>
                   controller: yourNameController,
                   obscureText: false,
                   decoration: InputDecoration(
+                    labelText: 'Your Name',
                     labelStyle: FlutterFlowTheme.bodyText1.override(
                       fontFamily: 'Lexend Deca',
                       color: FlutterFlowTheme.grayLight,
                     ),
+                    hintText: 'Please enter a valid number...',
                     hintStyle: FlutterFlowTheme.bodyText1.override(
                       fontFamily: 'Lexend Deca',
                       color: Color(0x98FFFFFF),
@@ -272,10 +274,12 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget>
                   controller: yourAgeController,
                   obscureText: false,
                   decoration: InputDecoration(
+                    labelText: 'Your Age',
                     labelStyle: FlutterFlowTheme.bodyText1.override(
                       fontFamily: 'Lexend Deca',
                       color: FlutterFlowTheme.grayLight,
                     ),
+                    hintText: 'i.e. 34',
                     hintStyle: FlutterFlowTheme.bodyText1.override(
                       fontFamily: 'Lexend Deca',
                       color: Color(0x98FFFFFF),
@@ -312,10 +316,12 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget>
                   controller: ailmentsController,
                   obscureText: false,
                   decoration: InputDecoration(
+                    labelText: 'Ailments',
                     labelStyle: FlutterFlowTheme.bodyText1.override(
                       fontFamily: 'Lexend Deca',
                       color: FlutterFlowTheme.grayLight,
                     ),
+                    hintText: 'What types of allergies do you have..',
                     hintStyle: FlutterFlowTheme.bodyText1.override(
                       fontFamily: 'Lexend Deca',
                       color: Color(0x98FFFFFF),
@@ -363,7 +369,7 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget>
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     FlutterFlowRadioButton(
-                      options: [],
+                      options: ['Male', 'Female', 'Undisclosed'],
                       onChanged: (value) {
                         setState(() => radioButtonValue = value);
                       },

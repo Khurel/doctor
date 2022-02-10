@@ -102,10 +102,12 @@ class _AddAnotherProfileWidgetState extends State<AddAnotherProfileWidget> {
                   controller: phoneNumberController1,
                   obscureText: false,
                   decoration: InputDecoration(
+                    labelText: 'Persons Name',
                     labelStyle: FlutterFlowTheme.bodyText1.override(
                       fontFamily: 'Lexend Deca',
                       color: FlutterFlowTheme.grayLight,
                     ),
+                    hintText: 'Official name here...',
                     hintStyle: FlutterFlowTheme.bodyText1.override(
                       fontFamily: 'Lexend Deca',
                       color: Color(0x98FFFFFF),
@@ -141,10 +143,12 @@ class _AddAnotherProfileWidgetState extends State<AddAnotherProfileWidget> {
                   controller: phoneNumberController2,
                   obscureText: false,
                   decoration: InputDecoration(
+                    labelText: 'Persons Age',
                     labelStyle: FlutterFlowTheme.bodyText1.override(
                       fontFamily: 'Lexend Deca',
                       color: FlutterFlowTheme.grayLight,
                     ),
+                    hintText: 'i.e. 34',
                     hintStyle: FlutterFlowTheme.bodyText1.override(
                       fontFamily: 'Lexend Deca',
                       color: Color(0x98FFFFFF),
@@ -181,10 +185,12 @@ class _AddAnotherProfileWidgetState extends State<AddAnotherProfileWidget> {
                   controller: phoneNumberController3,
                   obscureText: false,
                   decoration: InputDecoration(
+                    labelText: 'Persons Ailments',
                     labelStyle: FlutterFlowTheme.bodyText1.override(
                       fontFamily: 'Lexend Deca',
                       color: FlutterFlowTheme.grayLight,
                     ),
+                    hintText: 'What types of allergies do they have..',
                     hintStyle: FlutterFlowTheme.bodyText1.override(
                       fontFamily: 'Lexend Deca',
                       color: Color(0x98FFFFFF),
@@ -220,10 +226,12 @@ class _AddAnotherProfileWidgetState extends State<AddAnotherProfileWidget> {
                   controller: phoneNumberController4,
                   obscureText: false,
                   decoration: InputDecoration(
+                    labelText: 'Location',
                     labelStyle: FlutterFlowTheme.bodyText1.override(
                       fontFamily: 'Lexend Deca',
                       color: FlutterFlowTheme.grayLight,
                     ),
+                    hintText: 'Please enter a valid email...',
                     hintStyle: FlutterFlowTheme.bodyText1.override(
                       fontFamily: 'Lexend Deca',
                       color: Color(0x98FFFFFF),
@@ -272,7 +280,7 @@ class _AddAnotherProfileWidgetState extends State<AddAnotherProfileWidget> {
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     FlutterFlowRadioButton(
-                      options: [],
+                      options: ['Male', 'Female', 'Undisclosed'],
                       onChanged: (value) {
                         setState(() => radioButtonValue = value);
                       },

@@ -33,8 +33,6 @@ class _BookingOldWidgetState extends State<BookingOldWidget> {
   @override
   void initState() {
     super.initState();
-    emailController = TextEditingController();
-    personsNameController = TextEditingController();
     problemDescriptionController = TextEditingController();
   }
 
@@ -101,9 +99,12 @@ class _BookingOldWidgetState extends State<BookingOldWidget> {
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
                     child: TextFormField(
-                      controller: emailController,
+                      controller: emailController ??= TextEditingController(
+                        text: columnUsersRecord.email,
+                      ),
                       obscureText: false,
                       decoration: InputDecoration(
+                        labelText: 'Email Address',
                         labelStyle: FlutterFlowTheme.bodyText1,
                         enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(
@@ -135,9 +136,13 @@ class _BookingOldWidgetState extends State<BookingOldWidget> {
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
                     child: TextFormField(
-                      controller: personsNameController,
+                      controller: personsNameController ??=
+                          TextEditingController(
+                        text: columnUsersRecord.displayName,
+                      ),
                       obscureText: false,
                       decoration: InputDecoration(
+                        labelText: 'Booking For',
                         labelStyle: FlutterFlowTheme.bodyText1,
                         enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(
@@ -168,7 +173,12 @@ class _BookingOldWidgetState extends State<BookingOldWidget> {
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
                     child: FlutterFlowDropDown(
-                      options: [].toList(),
+                      options: [
+                        'Type of Appointment',
+                        'Doctors Visit',
+                        'Routine Checkup',
+                        'Scan/Update'
+                      ].toList(),
                       onChanged: (val) => setState(() => dropDownValue = val),
                       width: MediaQuery.of(context).size.width * 0.9,
                       height: 60,
@@ -196,6 +206,7 @@ class _BookingOldWidgetState extends State<BookingOldWidget> {
                       controller: problemDescriptionController,
                       obscureText: false,
                       decoration: InputDecoration(
+                        labelText: 'What\'s the problem?',
                         labelStyle: FlutterFlowTheme.bodyText1,
                         enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(
@@ -356,7 +367,8 @@ class _BookingOldWidgetState extends State<BookingOldWidget> {
                                 createAppointmentsRecordData(
                               appointmentType: dropDownValue,
                               appointmentTime: datePicked,
-                              appointmentName: personsNameController.text,
+                              appointmentName:
+                                  personsNameController?.text ?? '',
                               appointmentDescription:
                                   problemDescriptionController.text,
                               appointmentEmail: currentUserEmail,

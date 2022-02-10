@@ -126,7 +126,6 @@ class _BookAppointmentWidgetState extends State<BookAppointmentWidget>
       this,
     );
 
-    personsNameController = TextEditingController();
     problemDescriptionController = TextEditingController();
   }
 
@@ -210,9 +209,13 @@ class _BookAppointmentWidgetState extends State<BookAppointmentWidget>
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
                     child: TextFormField(
-                      controller: personsNameController,
+                      controller: personsNameController ??=
+                          TextEditingController(
+                        text: columnUsersRecord.displayName,
+                      ),
                       obscureText: false,
                       decoration: InputDecoration(
+                        labelText: 'Booking For',
                         labelStyle: FlutterFlowTheme.bodyText1,
                         enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(
@@ -244,7 +247,12 @@ class _BookAppointmentWidgetState extends State<BookAppointmentWidget>
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
                     child: FlutterFlowDropDown(
-                      options: [].toList(),
+                      options: [
+                        'Type of Appointment',
+                        'Doctors Visit',
+                        'Routine Checkup',
+                        'Scan/Update'
+                      ].toList(),
                       onChanged: (val) => setState(() => dropDownValue = val),
                       width: MediaQuery.of(context).size.width * 0.9,
                       height: 60,
@@ -272,6 +280,7 @@ class _BookAppointmentWidgetState extends State<BookAppointmentWidget>
                       controller: problemDescriptionController,
                       obscureText: false,
                       decoration: InputDecoration(
+                        labelText: 'What\'s the problem?',
                         labelStyle: FlutterFlowTheme.bodyText1,
                         enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(
@@ -434,7 +443,8 @@ class _BookAppointmentWidgetState extends State<BookAppointmentWidget>
                                 createAppointmentsRecordData(
                               appointmentType: dropDownValue,
                               appointmentTime: datePicked,
-                              appointmentName: personsNameController.text,
+                              appointmentName:
+                                  personsNameController?.text ?? '',
                               appointmentDescription:
                                   problemDescriptionController.text,
                               appointmentEmail: currentUserEmail,

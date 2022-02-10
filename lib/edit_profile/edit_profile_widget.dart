@@ -33,10 +33,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
   @override
   void initState() {
     super.initState();
-    yourAgeController = TextEditingController();
-    yourEmailController = TextEditingController();
-    yourNameController = TextEditingController();
-    yourAilmentsController = TextEditingController();
+    yourEmailController = TextEditingController(text: currentUserEmail);
   }
 
   @override
@@ -145,13 +142,17 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(20, 20, 20, 0),
                     child: TextFormField(
-                      controller: yourNameController,
+                      controller: yourNameController ??= TextEditingController(
+                        text: editProfileUsersRecord.displayName,
+                      ),
                       obscureText: false,
                       decoration: InputDecoration(
+                        labelText: 'Your Name',
                         labelStyle: FlutterFlowTheme.bodyText1.override(
                           fontFamily: 'Lexend Deca',
                           color: FlutterFlowTheme.grayLight,
                         ),
+                        hintText: 'Please enter a valid number...',
                         hintStyle: FlutterFlowTheme.bodyText1.override(
                           fontFamily: 'Lexend Deca',
                           color: Color(0x98FFFFFF),
@@ -187,10 +188,12 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                       controller: yourEmailController,
                       obscureText: false,
                       decoration: InputDecoration(
+                        labelText: 'Email Address',
                         labelStyle: FlutterFlowTheme.bodyText1.override(
                           fontFamily: 'Lexend Deca',
                           color: FlutterFlowTheme.grayLight,
                         ),
+                        hintText: 'Your email',
                         hintStyle: FlutterFlowTheme.bodyText1.override(
                           fontFamily: 'Lexend Deca',
                           color: Color(0x98FFFFFF),
@@ -225,13 +228,17 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(20, 20, 20, 0),
                     child: TextFormField(
-                      controller: yourAgeController,
+                      controller: yourAgeController ??= TextEditingController(
+                        text: editProfileUsersRecord.age.toString(),
+                      ),
                       obscureText: false,
                       decoration: InputDecoration(
+                        labelText: 'Your Age',
                         labelStyle: FlutterFlowTheme.bodyText1.override(
                           fontFamily: 'Lexend Deca',
                           color: FlutterFlowTheme.grayLight,
                         ),
+                        hintText: 'i.e. 34',
                         hintStyle: FlutterFlowTheme.bodyText1.override(
                           fontFamily: 'Lexend Deca',
                           color: Color(0x98FFFFFF),
@@ -265,13 +272,18 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(20, 20, 20, 0),
                     child: TextFormField(
-                      controller: yourAilmentsController,
+                      controller: yourAilmentsController ??=
+                          TextEditingController(
+                        text: editProfileUsersRecord.ailments,
+                      ),
                       obscureText: false,
                       decoration: InputDecoration(
+                        labelText: 'Ailments',
                         labelStyle: FlutterFlowTheme.bodyText1.override(
                           fontFamily: 'Lexend Deca',
                           color: FlutterFlowTheme.grayLight,
                         ),
+                        hintText: 'What types of allergies do you have..',
                         hintStyle: FlutterFlowTheme.bodyText1.override(
                           fontFamily: 'Lexend Deca',
                           color: Color(0x98FFFFFF),
@@ -338,7 +350,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                             }
                             final radioButtonUsersRecord = snapshot.data;
                             return FlutterFlowRadioButton(
-                              options: [],
+                              options: ['Male', 'Female', 'Undisclosed'],
                               onChanged: (value) {
                                 setState(() => radioButtonValue = value);
                               },
@@ -367,10 +379,10 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                     child: FFButtonWidget(
                       onPressed: () async {
                         final usersUpdateData = createUsersRecordData(
-                          displayName: yourNameController.text,
+                          displayName: yourNameController?.text ?? '',
                           email: yourEmailController.text,
-                          age: int.parse(yourAgeController.text),
-                          ailments: yourAilmentsController.text,
+                          age: int.parse(yourAgeController?.text ?? ''),
+                          ailments: yourAilmentsController?.text ?? '',
                           userSex: editProfileUsersRecord.userSex,
                         );
                         await editProfileUsersRecord.reference

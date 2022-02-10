@@ -102,8 +102,12 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                       FlutterFlowTheme.tertiaryColor,
                                   indicatorWeight: 3,
                                   tabs: [
-                                    Tab(),
-                                    Tab(),
+                                    Tab(
+                                      text: 'Login',
+                                    ),
+                                    Tab(
+                                      text: 'Register',
+                                    ),
                                   ],
                                 ),
                                 Expanded(
@@ -124,12 +128,15 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                       emailAddressLoginController,
                                                   obscureText: false,
                                                   decoration: InputDecoration(
+                                                    labelText: 'Email Address',
                                                     labelStyle: FlutterFlowTheme
                                                         .bodyText1
                                                         .override(
                                                       fontFamily: 'Lexend Deca',
                                                       color: Color(0x98FFFFFF),
                                                     ),
+                                                    hintText:
+                                                        'Enter your email...',
                                                     hintStyle: FlutterFlowTheme
                                                         .bodyText1
                                                         .override(
@@ -184,12 +191,15 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                   obscureText:
                                                       !passwordLoginVisibility,
                                                   decoration: InputDecoration(
+                                                    labelText: 'Password',
                                                     labelStyle: FlutterFlowTheme
                                                         .bodyText1
                                                         .override(
                                                       fontFamily: 'Lexend Deca',
                                                       color: Color(0x98FFFFFF),
                                                     ),
+                                                    hintText:
+                                                        'Enter your password...',
                                                     hintStyle: FlutterFlowTheme
                                                         .bodyText1
                                                         .override(
@@ -355,12 +365,15 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                       emailAddressController,
                                                   obscureText: false,
                                                   decoration: InputDecoration(
+                                                    labelText: 'Email Address',
                                                     labelStyle: FlutterFlowTheme
                                                         .bodyText1
                                                         .override(
                                                       fontFamily: 'Lexend Deca',
                                                       color: Color(0x98FFFFFF),
                                                     ),
+                                                    hintText:
+                                                        'Enter your email...',
                                                     hintStyle: FlutterFlowTheme
                                                         .bodyText1
                                                         .override(
@@ -415,12 +428,15 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                   obscureText:
                                                       !passwordCreateVisibility,
                                                   decoration: InputDecoration(
+                                                    labelText: 'Password',
                                                     labelStyle: FlutterFlowTheme
                                                         .bodyText1
                                                         .override(
                                                       fontFamily: 'Lexend Deca',
                                                       color: Color(0x98FFFFFF),
                                                     ),
+                                                    hintText:
+                                                        'Enter your password...',
                                                     hintStyle: FlutterFlowTheme
                                                         .bodyText1
                                                         .override(
@@ -491,12 +507,16 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                   obscureText:
                                                       !passwordConfirmVisibility,
                                                   decoration: InputDecoration(
+                                                    labelText:
+                                                        'Confirm Password',
                                                     labelStyle: FlutterFlowTheme
                                                         .bodyText1
                                                         .override(
                                                       fontFamily: 'Lexend Deca',
                                                       color: Color(0x98FFFFFF),
                                                     ),
+                                                    hintText:
+                                                        'Enter your password...',
                                                     hintStyle: FlutterFlowTheme
                                                         .bodyText1
                                                         .override(

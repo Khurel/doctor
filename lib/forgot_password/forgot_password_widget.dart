@@ -84,10 +84,12 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                 controller: emailAddressController,
                 obscureText: false,
                 decoration: InputDecoration(
+                  labelText: 'Email Address',
                   labelStyle: FlutterFlowTheme.bodyText1.override(
                     fontFamily: 'Lexend Deca',
                     color: Color(0x98FFFFFF),
                   ),
+                  hintText: 'Enter your email...',
                   hintStyle: FlutterFlowTheme.bodyText1.override(
                     fontFamily: 'Lexend Deca',
                     color: Color(0x98FFFFFF),

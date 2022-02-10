@@ -32,8 +32,10 @@ class _EditBookingWidgetState extends State<EditBookingWidget> {
   @override
   void initState() {
     super.initState();
-    personsNameController = TextEditingController();
-    problemDescriptionController = TextEditingController();
+    personsNameController =
+        TextEditingController(text: widget.userAppointment.appointmentName);
+    problemDescriptionController = TextEditingController(
+        text: widget.userAppointment.appointmentDescription);
   }
 
   @override
@@ -102,6 +104,7 @@ class _EditBookingWidgetState extends State<EditBookingWidget> {
                   controller: personsNameController,
                   obscureText: false,
                   decoration: InputDecoration(
+                    labelText: 'Booking For',
                     labelStyle: FlutterFlowTheme.bodyText1,
                     enabledBorder: OutlineInputBorder(
                       borderSide: BorderSide(
@@ -132,7 +135,14 @@ class _EditBookingWidgetState extends State<EditBookingWidget> {
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
                 child: FlutterFlowDropDown(
-                  options: [].toList(),
+                  initialOption: dropDownValue ??=
+                      widget.userAppointment.appointmentType,
+                  options: [
+                    'Type of Appointment',
+                    'Doctors Visit',
+                    'Routine Checkup',
+                    'Scan/Update'
+                  ].toList(),
                   onChanged: (val) => setState(() => dropDownValue = val),
                   width: MediaQuery.of(context).size.width * 0.9,
                   height: 60,
@@ -160,6 +170,7 @@ class _EditBookingWidgetState extends State<EditBookingWidget> {
                   controller: problemDescriptionController,
                   obscureText: false,
                   decoration: InputDecoration(
+                    labelText: 'What\'s the problem?',
                     labelStyle: FlutterFlowTheme.bodyText1,
                     enabledBorder: OutlineInputBorder(
                       borderSide: BorderSide(
